@@ -21,24 +21,36 @@ const LoginForm = () => {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit} className="bg-gray-200 rounded-lg p-8 max-w-sm ">
-                <input 
-                    className="mb-4 p-2 border border-gray-300 rounded" placeholder="email"
-                    type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)}
+        <div className="min-h-screen flex items-center justify-center bg-gray-100">
+            <form onSubmit={handleSubmit} className="bg-white shadow-lg rounded-lg p-8 max-w-sm w-full">
+                <h2 className="text-2xl font-bold text-center mb-6">Login</h2>
+                <input
+                    className="mb-4 p-3 w-full border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Email"
+                    type="email"
+                    name="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     required
                 />
-                <input 
-                    className="mb-4 p-2 border border-gray-300 rounded" placeholder="password"
-                    type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)}
+                <input
+                    className="mb-4 p-3 w-full border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Password"
+                    type="password"
+                    name="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     required
                 />
-                <input className="w-1/3 bg-green-500"
-                    type="submit" value="Login" 
-                />
+                <button
+                    type="submit"
+                    className="w-full bg-blue-500 text-white py-3 rounded hover:bg-blue-600 transition-colors duration-300"
+                >
+                    Login
+                </button>
             </form>
         </div>
-    )
+    );
 
 }
 
