@@ -8,7 +8,7 @@ const DashboardPage =() => {
 
     return (
         <div>
-            <h1 className="text-center text-3xl py-5">Hi, {user.first_name} </h1>
+            <h1 className="text-center text-3xl py-5">Hi, {user.username} </h1>
         </div>
     )
 }

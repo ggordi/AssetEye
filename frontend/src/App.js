@@ -6,6 +6,7 @@ import RegisterPage from './pages/RegisterPage';
 import DashboardPage from './pages/DashboardPage';
 import HomePage from './pages/HomePage'
 import PrivateRoute from './components/PrivateRoute'
+import ExplorePage from './pages/ExplorePage'
 
 
 
@@ -20,6 +21,8 @@ const App = () => {
                     <Route element={<PrivateRoute />}>
                         <Route path="/dashboard" element={<DashboardPage />} />
                     </Route>
+                    {/* make this below a private route eventually  */}
+                    <Route path="/explore" element={<ExplorePage />} />
                 </Routes>
             </AuthProvider>
         </Router>
