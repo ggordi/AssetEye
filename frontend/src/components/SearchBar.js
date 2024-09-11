@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
 import axios from "axios"
 
@@ -12,12 +12,9 @@ const SearchBar = () => {
         console.log(input)
 
         try {
-            // Send request to the backend
             const response = await axios.get('http://localhost:8000/api/stock-info/', {
-                params: { input: input } // Sending the input as a query parameter
+                params: { input: input }
             });
-
-            // Log the response data
             let info_dict = response.data.info
             console.log(info_dict)
             setStockInfo(info_dict)
@@ -25,9 +22,23 @@ const SearchBar = () => {
             console.error("Error fetching stock info:", error);
             setStockInfo("Invalid Query")
         }
-
-        // send request to the backend, retrieve json response with stock info
     }
+    
+    useEffect(() => {
+        const fetchStockInfo = async (ticker) => {
+            try {
+                const response = await axios.get('http://localhost:8000/api/stock-info/', {
+                    params: { input: ticker } // Sending the input as a query parameter
+                });
+                setStockInfo(response.data.info); // Update state with fetched stock data
+                setInput("NVDA")
+            } catch (error) {
+                console.error("error fetching data");
+            }
+        };
+
+        fetchStockInfo("NVDA"); // Trigger search for default stock 'NVDA' on page load
+    }, []);
 
     return (
         // Wrapper for the search bar
@@ -48,11 +59,20 @@ const SearchBar = () => {
                 </button>
             </form>
 
+            {stockInfo && (
+            <div className="bg-white border border-gray-200 rounded-lg p-6 mt-24 ">
+                <h2 className="text-xl font-semibold mb-2">Today's {stockInfo['name']} News</h2>
+                <h1 className="text-lg mb-4">➤  {stockInfo['news'][0]['title']} <a href={stockInfo['news'][0]['link']} className="text-blue-500 underline text-base">{stockInfo['news'][0]['publisher']}</a></h1>   
+                <h1 className="text-lg mb-4">➤  {stockInfo['news'][1]['title']} <a href={stockInfo['news'][1]['link']} className="text-blue-500 underline text-base">{stockInfo['news'][1]['publisher']}</a></h1>                
+                <h1 className="text-lg mb-4">➤  {stockInfo['news'][2]['title']} <a href={stockInfo['news'][2]['link']} className="text-blue-500 underline text-base">{stockInfo['news'][2]['publisher']}</a></h1>                
+            </div>)
+            }
+
             {/* Stock Information Card */}
             {stockInfo && (
                 <div
                     className="fixed right-0 top-0 h-full w-3/4 flex items-center justify-center"
-                    style={{ zIndex: 1000 }} // Ensure it appears above other content
+                     // Ensure it appears above other content
                 >
                     <div className="w-[48rem] bg-white border border-gray-200 rounded-lg shadow-xl p-6">
                         <h2 className="text-2xl font-semibold mb-2">

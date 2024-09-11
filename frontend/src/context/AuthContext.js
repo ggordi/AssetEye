@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }) => {
             setAuthTokens(response.data);
             setUser(jwtDecode(response.data.access));
             localStorage.setItem("authTokens", JSON.stringify(response.data));
-            navigate("/dashboard");  // when the user is logged in, navigate them to their dashboard
+            navigate("/explore");  // when the user is logged in, navigate them to their dashboard
         } catch (error) {
             console.error("Login failed:", error); // Log the error
             navigate("/login"); // Navigate back to login on failure

@@ -11,6 +11,6 @@ urlpatterns = [
 
 
     # DEPRACATE WHAT IS BELOW
-    path('get-stock-info/', views.get_stock_info, name='get-stock-info'),  # GET
+    path('get-stock-info/', views.stock_info, name='get-stock-info'),  # GET
     path('get-trending-stocks/', views.get_trending_stocks, name='get-trending-stocks')
 ]
