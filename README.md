@@ -12,6 +12,15 @@ Staying updated on top stock news and asset statistics has been a priority for m
 - **Backend**: Django REST Framework, JWT Authentication, Yahoo Finance API
 - **Frontend**: React JS, TailwindCSS, Axios
 
+## Features 
+#### Real Time Financial Data
+- Retrieves real time stock data via the Yahoo Finance API
+- Scrapes CNBC for daily trending stock searches
+- Retreives links to the most recent and relevant news specific to the queried asset
+#### Account Creation and Watchlist Management
+- Investors can register for an account using their email and access the "Explore" and "Watchlist" pages once they are signed in
+- Users can query assets in the "Explore" page and add assets to their watchlist
+- In the "Watchlist" page, users may remove assets they no longer desire to track from their watchlist
 
 
 
