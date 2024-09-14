@@ -16,7 +16,7 @@ const HomePage = () => {
       <Header />
 
       <div className="text-center mb-72">
-        <h1 className="text-8xl font-bold text-white mb-6">Asset Eye</h1>
+        <h1 className="text-8xl font-bold text-white mb-6 mt-36">Asset Eye</h1>
         <p className="text-3xl font-semibold text-white mb-8  mx-auto">
           Your one stop shop for the information you need to make educated
           investment decisions.

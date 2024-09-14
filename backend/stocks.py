@@ -9,9 +9,9 @@ def get_news(ticker):
 def stock_info(ticker):
     res = yf.Ticker(ticker).info
     info_dict = dict()  # have key/value pairs for current price, trailing p/e, open, close
-    return {'ticker': ticker, 'name': res['longName'], 'sector': res['sector'],'current-price': res['currentPrice'], 'trailing-pe': res['trailingPE'], 'open-price': res['open'], 'close-price': res['previousClose'], 'market-cap': res['marketCap'],
-            'description': res['longBusinessSummary'], 
-            'percent-change': (res['currentPrice']-res['open'])/res['open']*100,
+    return {'ticker': ticker, 'name': res['longName'], 'sector': res['sector'],'current-price': res['currentPrice'], 'trailing-pe': res.get('trailingPE', 'N/A'), 'open-price': res['open'], 'close-price': res['previousClose'], 'market-cap': res['marketCap'],
+            'description': res['longBusinessSummary'], '52-high': res['fiftyTwoWeekHigh'], '52-low': res['fiftyTwoWeekLow'],
+            'percent-change': (res['currentPrice']-res['open'])/res['open']*100, 'gm': res['grossMargins'], 'profit-m': res.get('profitMargins', 'N/A'),
             'eps': res['trailingEps'],
             'news': {
                         0: {'link': get_news(ticker)[0]['link'], 'title': get_news(ticker)[0]['title'], 'publisher': get_news(ticker)[0]['publisher']}, 
@@ -22,7 +22,7 @@ def stock_info(ticker):
 
     # implement summarization API to summarize the business summary and news articles
 
-# print(sorted(yf.Ticker('MSFT').info.keys()))
+print(sorted(yf.Ticker('MSFT').info.keys()))
 # print(stock_info('AAPL'))
 
-print(get_news('MSFT')[0].keys())
+# print(get_news('MSFT')[0].keys())

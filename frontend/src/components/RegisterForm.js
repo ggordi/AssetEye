@@ -91,12 +91,14 @@ const RegisterForm = () => {
                 >
                     Register
                 </button>
+
+                <div className="mt-4">
+                    {errorMessage && <p className="text-red-500 text-lg">{errorMessage}</p>}
+                    {successMessage && <p className="text-green-700 text-lg">{successMessage}</p>}
+                </div>
             </form>
 
-            <div className="mt-4">
-                {errorMessage && <p className="text-red-500 text-lg">{errorMessage}</p>}
-                {successMessage && <p className="text-green-500 text-lg">{successMessage}</p>}
-            </div>
+            
         </div>
     )
 }

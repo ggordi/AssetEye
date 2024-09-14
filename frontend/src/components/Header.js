@@ -7,7 +7,7 @@ const Header = () => {
 
     return (
         <header className="p-4 font-song text-white fixed top-0 left-0 w-full mt-4" style={{ zIndex: 2000 }}>
-            <nav className="flex items-center justify-between">
+            <nav className="flex items-center justify-between ">
                 <h1 className="font-bold text-2xl ml-32">
                     <Link to="/" className="text-white hover:text-gray-300">Asset Eye</Link>
                 </h1>

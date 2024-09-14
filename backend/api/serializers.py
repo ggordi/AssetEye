@@ -1,8 +1,13 @@
 from rest_framework import serializers
-from .models import CustomUser
+from .models import Stock, CustomUser
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 # creating custom serializers for the custom user and jwt tokens
+
+class StockSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Stock
+        fields = ["id", "ticker", "name"]
 
 class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
