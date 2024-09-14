@@ -22,5 +22,9 @@ Staying updated on top stock news and asset statistics has been a priority for m
 - Users can query assets in the "Explore" page and add assets to their watchlist
 - In the "Watchlist" page, users may remove assets they no longer desire to track from their watchlist
 
+## Demo
+https://github.com/user-attachments/assets/1040a580-eacf-41e8-a58c-2fc52f033c2a
+
+
 
 
